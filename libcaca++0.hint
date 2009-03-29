@@ -1,0 +1,13 @@
+category: Graphics
+requires: cygwin libcaca0 libgcc1 libstdc++6
+external-source: libcaca
+sdesc: "Colored ASCII graphics library (C++ runtime)"
+ldesc: "libcaca is a graphics library that outputs text instead of pixels, so
+that it can work on older video cards or text terminals. It is not
+unlike the famous AAlib library, except that colors are supported.
+libcaca can use almost any virtual terminal to work, thus it should work
+on all Unix systems (including Mac OS X) using either the slang library
+or the ncurses library, on DOS using the conio library, and on Windows
+systems using either slang or ncurses (through Cygwin emulation) or
+conio. There is also a native X11 driver that does not require a text
+terminal."

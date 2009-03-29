@@ -1,0 +1,434 @@
+libcaca
+-------------------------------------------
+libcaca is a graphics library that outputs text instead of pixels, so
+that it can work on older video cards or text terminals. It is not
+unlike the famous AAlib library, except that colors are supported.
+libcaca can use almost any virtual terminal to work, thus it should work
+on all Unix systems (including Mac OS X) using either the slang library
+or the ncurses library. There is also a native X11 driver that does not
+require a text terminal.
+
+Runtime requirements:
+  cygwin-1.7.0-44
+  libgcc1-4.3.2-2
+  libGL1-7.2-10
+  libGLU1-7.2-10
+  libglut3-2.4.0-1
+  libX11_6-1.2-10
+  libImlib2_1-1.4.2-10
+  libncurses9-5.7-14
+(libcaca++)
+  libstdc++6-4.3.2-2
+(ruby-caca)
+  ruby-1.8.7_p72-10
+
+Build requirements:
+(besides corresponding devel packages)
+  autoconf2.5-2.63-10
+  automake1.10-1.10.1-10
+  binutils-20080624-2
+  cygport-0.9.6-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  libtool-2.2.6a-2
+  make-3.81-2
+  pkg-config-0.23a-2
+  sed-4.1.5-2
+
+Canonical homepage:
+  http://libcaca.zoy.org/
+
+Canonical download:
+  http://libcaca.zoy.org/files/libcaca/
+
+-------------------------------------------
+
+Build instructions:
+  unpack libcaca-0.99.beta16-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./libcaca-0.99.beta16-X.cygport all
+
+This will create:
+  /usr/src/caca-sharp-0.99.beta16-X.tar.bz2
+  /usr/src/libcaca++-devel-0.99.beta16-X.tar.bz2
+  /usr/src/libcaca++0-0.99.beta16-X.tar.bz2
+  /usr/src/libcaca-0.99.beta16-X-src.tar.bz2
+  /usr/src/libcaca-bin-0.99.beta16-X.tar.bz2
+  /usr/src/libcaca-devel-0.99.beta16-X.tar.bz2
+  /usr/src/libcaca-doc-0.99.beta16-X.tar.bz2
+  /usr/src/libcaca0-0.99.beta16-X.tar.bz2
+  /usr/src/ruby-caca-0.99.beta16-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+(libcaca-bin)
+  /usr/bin/cacademo.exe
+  /usr/bin/cacafire.exe
+  /usr/bin/cacaplay.exe
+  /usr/bin/cacaserver.exe
+  /usr/bin/cacaview.exe
+  /usr/bin/img2txt.exe
+  /usr/share/doc/libcaca/AUTHORS
+  /usr/share/doc/libcaca/COPYING
+  /usr/share/doc/libcaca/ChangeLog
+  /usr/share/doc/libcaca/NEWS
+  /usr/share/doc/libcaca/NOTES
+  /usr/share/doc/libcaca/README
+  /usr/share/doc/libcaca/THANKS
+  /usr/share/doc/libcaca/TODO
+  /usr/share/libcaca/caca.txt
+  /usr/share/man/man1/cacademo.1.gz
+  /usr/share/man/man1/cacafire.1.gz
+  /usr/share/man/man1/cacaplay.1.gz
+  /usr/share/man/man1/cacaserver.1.gz
+  /usr/share/man/man1/cacaview.1.gz
+  /usr/share/man/man1/img2txt.1.gz
+
+(libcaca0)
+  /usr/bin/cygcaca-0.dll
+  /usr/lib/caca/cyggl_plugin.dll
+  /usr/lib/caca/cygx11_plugin.dll
+  /usr/lib/caca/libgl_plugin.la
+  /usr/lib/caca/libx11_plugin.la
+
+(libcaca++0)
+  /usr/bin/cygcaca++-0.dll
+
+(libcaca-devel)
+  /usr/bin/caca-config
+  /usr/include/caca.h
+  /usr/include/caca0.h
+  /usr/include/cucul.h
+  /usr/lib/libcaca.a
+  /usr/lib/libcaca.dll.a
+  /usr/lib/libcaca.la
+  /usr/lib/libcucul.dll.a
+  /usr/lib/pkgconfig/caca.pc
+  /usr/lib/pkgconfig/cucul.pc
+  /usr/share/man/man1/caca-config.1.gz
+
+(libcaca++-devel)
+  /usr/include/caca++.h
+  /usr/include/cucul++.h
+  /usr/lib/libcaca++.a
+  /usr/lib/libcaca++.dll.a
+  /usr/lib/libcaca++.la
+  /usr/lib/libcucul++.dll.a
+  /usr/lib/pkgconfig/caca++.pc
+  /usr/lib/pkgconfig/cucul++.pc
+
+(ruby-caca)
+  /usr/lib/ruby/site_ruby/1.8/caca.rb
+  /usr/lib/ruby/site_ruby/1.8/i386-cygwin/caca.la
+  /usr/lib/ruby/site_ruby/1.8/i386-cygwin/caca.so
+
+(libcaca-doc)
+  /usr/share/doc/libcaca-dev/html/annotated.html
+  /usr/share/doc/libcaca-dev/html/caca_8h.html
+  /usr/share/doc/libcaca-dev/html/doxygen.png
+  /usr/share/doc/libcaca-dev/html/files.html
+  /usr/share/doc/libcaca-dev/html/globals.html
+  /usr/share/doc/libcaca-dev/html/globals_defs.html
+  /usr/share/doc/libcaca-dev/html/globals_enum.html
+  /usr/share/doc/libcaca-dev/html/globals_eval.html
+  /usr/share/doc/libcaca-dev/html/globals_func.html
+  /usr/share/doc/libcaca-dev/html/globals_type.html
+  /usr/share/doc/libcaca-dev/html/group__caca__attr.html
+  /usr/share/doc/libcaca-dev/html/group__caca__attributes.html
+  /usr/share/doc/libcaca-dev/html/group__caca__canvas.html
+  /usr/share/doc/libcaca-dev/html/group__caca__charset.html
+  /usr/share/doc/libcaca-dev/html/group__caca__display.html
+  /usr/share/doc/libcaca-dev/html/group__caca__dither.html
+  /usr/share/doc/libcaca-dev/html/group__caca__event.html
+  /usr/share/doc/libcaca-dev/html/group__caca__figfont.html
+  /usr/share/doc/libcaca-dev/html/group__caca__file.html
+  /usr/share/doc/libcaca-dev/html/group__caca__font.html
+  /usr/share/doc/libcaca-dev/html/group__caca__frame.html
+  /usr/share/doc/libcaca-dev/html/group__caca__importexport.html
+  /usr/share/doc/libcaca-dev/html/group__caca__primitives.html
+  /usr/share/doc/libcaca-dev/html/group__caca__transform.html
+  /usr/share/doc/libcaca-dev/html/group__libcaca.html
+  /usr/share/doc/libcaca-dev/html/index.html
+  /usr/share/doc/libcaca-dev/html/libcaca-authors.html
+  /usr/share/doc/libcaca-dev/html/libcaca-canvas.html
+  /usr/share/doc/libcaca-dev/html/libcaca-env.html
+  /usr/share/doc/libcaca-dev/html/libcaca-font.html
+  /usr/share/doc/libcaca-dev/html/libcaca-migrating.html
+  /usr/share/doc/libcaca-dev/html/libcaca-news.html
+  /usr/share/doc/libcaca-dev/html/libcaca-ruby-api.html
+  /usr/share/doc/libcaca-dev/html/libcaca-ruby.html
+  /usr/share/doc/libcaca-dev/html/libcaca-style.html
+  /usr/share/doc/libcaca-dev/html/libcaca-thanks.html
+  /usr/share/doc/libcaca-dev/html/libcaca-tutorial.html
+  /usr/share/doc/libcaca-dev/html/modules.html
+  /usr/share/doc/libcaca-dev/html/structcaca__event.html
+  /usr/share/doc/libcaca-dev/html/tab_b.gif
+  /usr/share/doc/libcaca-dev/html/tab_l.gif
+  /usr/share/doc/libcaca-dev/html/tab_r.gif
+  /usr/share/doc/libcaca/pdf/libcaca.pdf
+  /usr/share/man/man3/CACA_API_VERSION_1.3caca.gz
+  /usr/share/man/man3/CACA_BLACK.3caca.gz
+  /usr/share/man/man3/CACA_BLINK.3caca.gz
+  /usr/share/man/man3/CACA_BLUE.3caca.gz
+  /usr/share/man/man3/CACA_BOLD.3caca.gz
+  /usr/share/man/man3/CACA_BROWN.3caca.gz
+  /usr/share/man/man3/CACA_CYAN.3caca.gz
+  /usr/share/man/man3/CACA_DARKGRAY.3caca.gz
+  /usr/share/man/man3/CACA_DEFAULT.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_ANY.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_KEY_PRESS.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_KEY_RELEASE.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_MOUSE_MOTION.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_MOUSE_PRESS.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_MOUSE_RELEASE.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_NONE.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_QUIT.3caca.gz
+  /usr/share/man/man3/CACA_EVENT_RESIZE.3caca.gz
+  /usr/share/man/man3/CACA_GREEN.3caca.gz
+  /usr/share/man/man3/CACA_ITALICS.3caca.gz
+  /usr/share/man/man3/CACA_KEY_BACKSPACE.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_A.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_B.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_C.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_D.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_E.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_F.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_G.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_J.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_K.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_L.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_N.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_O.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_P.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_Q.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_R.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_T.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_U.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_V.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_W.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_X.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_Y.3caca.gz
+  /usr/share/man/man3/CACA_KEY_CTRL_Z.3caca.gz
+  /usr/share/man/man3/CACA_KEY_DELETE.3caca.gz
+  /usr/share/man/man3/CACA_KEY_DOWN.3caca.gz
+  /usr/share/man/man3/CACA_KEY_END.3caca.gz
+  /usr/share/man/man3/CACA_KEY_ESCAPE.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F1.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F10.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F11.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F12.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F13.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F14.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F15.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F2.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F3.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F4.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F5.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F6.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F7.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F8.3caca.gz
+  /usr/share/man/man3/CACA_KEY_F9.3caca.gz
+  /usr/share/man/man3/CACA_KEY_HOME.3caca.gz
+  /usr/share/man/man3/CACA_KEY_INSERT.3caca.gz
+  /usr/share/man/man3/CACA_KEY_LEFT.3caca.gz
+  /usr/share/man/man3/CACA_KEY_PAGEDOWN.3caca.gz
+  /usr/share/man/man3/CACA_KEY_PAGEUP.3caca.gz
+  /usr/share/man/man3/CACA_KEY_PAUSE.3caca.gz
+  /usr/share/man/man3/CACA_KEY_RETURN.3caca.gz
+  /usr/share/man/man3/CACA_KEY_RIGHT.3caca.gz
+  /usr/share/man/man3/CACA_KEY_TAB.3caca.gz
+  /usr/share/man/man3/CACA_KEY_UNKNOWN.3caca.gz
+  /usr/share/man/man3/CACA_KEY_UP.3caca.gz
+  /usr/share/man/man3/CACA_LIGHTBLUE.3caca.gz
+  /usr/share/man/man3/CACA_LIGHTCYAN.3caca.gz
+  /usr/share/man/man3/CACA_LIGHTGRAY.3caca.gz
+  /usr/share/man/man3/CACA_LIGHTGREEN.3caca.gz
+  /usr/share/man/man3/CACA_LIGHTMAGENTA.3caca.gz
+  /usr/share/man/man3/CACA_LIGHTRED.3caca.gz
+  /usr/share/man/man3/CACA_MAGENTA.3caca.gz
+  /usr/share/man/man3/CACA_MAGIC_FULLWIDTH.3caca.gz
+  /usr/share/man/man3/CACA_RED.3caca.gz
+  /usr/share/man/man3/CACA_TRANSPARENT.3caca.gz
+  /usr/share/man/man3/CACA_UNDERLINE.3caca.gz
+  /usr/share/man/man3/CACA_WHITE.3caca.gz
+  /usr/share/man/man3/CACA_YELLOW.3caca.gz
+  /usr/share/man/man3/caca.h.3caca.gz
+  /usr/share/man/man3/caca_attr.3caca.gz
+  /usr/share/man/man3/caca_attr_to_ansi.3caca.gz
+  /usr/share/man/man3/caca_attr_to_ansi_bg.3caca.gz
+  /usr/share/man/man3/caca_attr_to_ansi_fg.3caca.gz
+  /usr/share/man/man3/caca_attr_to_argb64.3caca.gz
+  /usr/share/man/man3/caca_attr_to_rgb12_bg.3caca.gz
+  /usr/share/man/man3/caca_attr_to_rgb12_fg.3caca.gz
+  /usr/share/man/man3/caca_attributes.3caca.gz
+  /usr/share/man/man3/caca_blit.3caca.gz
+  /usr/share/man/man3/caca_canvas.3caca.gz
+  /usr/share/man/man3/caca_canvas_set_figfont.3caca.gz
+  /usr/share/man/man3/caca_canvas_t.3caca.gz
+  /usr/share/man/man3/caca_charset.3caca.gz
+  /usr/share/man/man3/caca_clear_canvas.3caca.gz
+  /usr/share/man/man3/caca_cp437_to_utf32.3caca.gz
+  /usr/share/man/man3/caca_create_canvas.3caca.gz
+  /usr/share/man/man3/caca_create_display.3caca.gz
+  /usr/share/man/man3/caca_create_display_with_driver.3caca.gz
+  /usr/share/man/man3/caca_create_dither.3caca.gz
+  /usr/share/man/man3/caca_create_frame.3caca.gz
+  /usr/share/man/man3/caca_display.3caca.gz
+  /usr/share/man/man3/caca_display_t.3caca.gz
+  /usr/share/man/man3/caca_dither.3caca.gz
+  /usr/share/man/man3/caca_dither_bitmap.3caca.gz
+  /usr/share/man/man3/caca_dither_t.3caca.gz
+  /usr/share/man/man3/caca_draw_box.3caca.gz
+  /usr/share/man/man3/caca_draw_circle.3caca.gz
+  /usr/share/man/man3/caca_draw_cp437_box.3caca.gz
+  /usr/share/man/man3/caca_draw_ellipse.3caca.gz
+  /usr/share/man/man3/caca_draw_line.3caca.gz
+  /usr/share/man/man3/caca_draw_polyline.3caca.gz
+  /usr/share/man/man3/caca_draw_thin_box.3caca.gz
+  /usr/share/man/man3/caca_draw_thin_ellipse.3caca.gz
+  /usr/share/man/man3/caca_draw_thin_line.3caca.gz
+  /usr/share/man/man3/caca_draw_thin_polyline.3caca.gz
+  /usr/share/man/man3/caca_draw_thin_triangle.3caca.gz
+  /usr/share/man/man3/caca_draw_triangle.3caca.gz
+  /usr/share/man/man3/caca_event.3caca.gz
+  /usr/share/man/man3/caca_event_t.3caca.gz
+  /usr/share/man/man3/caca_event_type.3caca.gz
+  /usr/share/man/man3/caca_export_memory.3caca.gz
+  /usr/share/man/man3/caca_figfont.3caca.gz
+  /usr/share/man/man3/caca_file.3caca.gz
+  /usr/share/man/man3/caca_file_close.3caca.gz
+  /usr/share/man/man3/caca_file_eof.3caca.gz
+  /usr/share/man/man3/caca_file_gets.3caca.gz
+  /usr/share/man/man3/caca_file_open.3caca.gz
+  /usr/share/man/man3/caca_file_read.3caca.gz
+  /usr/share/man/man3/caca_file_t.3caca.gz
+  /usr/share/man/man3/caca_file_tell.3caca.gz
+  /usr/share/man/man3/caca_file_write.3caca.gz
+  /usr/share/man/man3/caca_fill_box.3caca.gz
+  /usr/share/man/man3/caca_fill_ellipse.3caca.gz
+  /usr/share/man/man3/caca_fill_triangle.3caca.gz
+  /usr/share/man/man3/caca_flip.3caca.gz
+  /usr/share/man/man3/caca_flop.3caca.gz
+  /usr/share/man/man3/caca_flush_figlet.3caca.gz
+  /usr/share/man/man3/caca_font.3caca.gz
+  /usr/share/man/man3/caca_font_t.3caca.gz
+  /usr/share/man/man3/caca_frame.3caca.gz
+  /usr/share/man/man3/caca_free_canvas.3caca.gz
+  /usr/share/man/man3/caca_free_display.3caca.gz
+  /usr/share/man/man3/caca_free_dither.3caca.gz
+  /usr/share/man/man3/caca_free_font.3caca.gz
+  /usr/share/man/man3/caca_free_frame.3caca.gz
+  /usr/share/man/man3/caca_get_attr.3caca.gz
+  /usr/share/man/man3/caca_get_canvas.3caca.gz
+  /usr/share/man/man3/caca_get_canvas_attrs.3caca.gz
+  /usr/share/man/man3/caca_get_canvas_chars.3caca.gz
+  /usr/share/man/man3/caca_get_canvas_handle_x.3caca.gz
+  /usr/share/man/man3/caca_get_canvas_handle_y.3caca.gz
+  /usr/share/man/man3/caca_get_canvas_height.3caca.gz
+  /usr/share/man/man3/caca_get_canvas_width.3caca.gz
+  /usr/share/man/man3/caca_get_char.3caca.gz
+  /usr/share/man/man3/caca_get_cursor_x.3caca.gz
+  /usr/share/man/man3/caca_get_cursor_y.3caca.gz
+  /usr/share/man/man3/caca_get_display_driver.3caca.gz
+  /usr/share/man/man3/caca_get_display_driver_list.3caca.gz
+  /usr/share/man/man3/caca_get_display_height.3caca.gz
+  /usr/share/man/man3/caca_get_display_time.3caca.gz
+  /usr/share/man/man3/caca_get_display_width.3caca.gz
+  /usr/share/man/man3/caca_get_dither_algorithm.3caca.gz
+  /usr/share/man/man3/caca_get_dither_algorithm_list.3caca.gz
+  /usr/share/man/man3/caca_get_dither_antialias.3caca.gz
+  /usr/share/man/man3/caca_get_dither_antialias_list.3caca.gz
+  /usr/share/man/man3/caca_get_dither_brightness.3caca.gz
+  /usr/share/man/man3/caca_get_dither_charset.3caca.gz
+  /usr/share/man/man3/caca_get_dither_charset_list.3caca.gz
+  /usr/share/man/man3/caca_get_dither_color.3caca.gz
+  /usr/share/man/man3/caca_get_dither_color_list.3caca.gz
+  /usr/share/man/man3/caca_get_dither_contrast.3caca.gz
+  /usr/share/man/man3/caca_get_dither_gamma.3caca.gz
+  /usr/share/man/man3/caca_get_event.3caca.gz
+  /usr/share/man/man3/caca_get_event_key_ch.3caca.gz
+  /usr/share/man/man3/caca_get_event_key_utf32.3caca.gz
+  /usr/share/man/man3/caca_get_event_key_utf8.3caca.gz
+  /usr/share/man/man3/caca_get_event_mouse_button.3caca.gz
+  /usr/share/man/man3/caca_get_event_mouse_x.3caca.gz
+  /usr/share/man/man3/caca_get_event_mouse_y.3caca.gz
+  /usr/share/man/man3/caca_get_event_resize_height.3caca.gz
+  /usr/share/man/man3/caca_get_event_resize_width.3caca.gz
+  /usr/share/man/man3/caca_get_event_type.3caca.gz
+  /usr/share/man/man3/caca_get_export_list.3caca.gz
+  /usr/share/man/man3/caca_get_font_blocks.3caca.gz
+  /usr/share/man/man3/caca_get_font_height.3caca.gz
+  /usr/share/man/man3/caca_get_font_list.3caca.gz
+  /usr/share/man/man3/caca_get_font_width.3caca.gz
+  /usr/share/man/man3/caca_get_frame_count.3caca.gz
+  /usr/share/man/man3/caca_get_frame_name.3caca.gz
+  /usr/share/man/man3/caca_get_import_list.3caca.gz
+  /usr/share/man/man3/caca_get_mouse_x.3caca.gz
+  /usr/share/man/man3/caca_get_mouse_y.3caca.gz
+  /usr/share/man/man3/caca_get_version.3caca.gz
+  /usr/share/man/man3/caca_gotoxy.3caca.gz
+  /usr/share/man/man3/caca_import_file.3caca.gz
+  /usr/share/man/man3/caca_import_memory.3caca.gz
+  /usr/share/man/man3/caca_importexport.3caca.gz
+  /usr/share/man/man3/caca_invert.3caca.gz
+  /usr/share/man/man3/caca_key.3caca.gz
+  /usr/share/man/man3/caca_load_font.3caca.gz
+  /usr/share/man/man3/caca_manage_canvas.3caca.gz
+  /usr/share/man/man3/caca_primitives.3caca.gz
+  /usr/share/man/man3/caca_printf.3caca.gz
+  /usr/share/man/man3/caca_put_attr.3caca.gz
+  /usr/share/man/man3/caca_put_char.3caca.gz
+  /usr/share/man/man3/caca_put_figchar.3caca.gz
+  /usr/share/man/man3/caca_put_str.3caca.gz
+  /usr/share/man/man3/caca_rand.3caca.gz
+  /usr/share/man/man3/caca_refresh_display.3caca.gz
+  /usr/share/man/man3/caca_render_canvas.3caca.gz
+  /usr/share/man/man3/caca_rotate_180.3caca.gz
+  /usr/share/man/man3/caca_rotate_left.3caca.gz
+  /usr/share/man/man3/caca_rotate_right.3caca.gz
+  /usr/share/man/man3/caca_set_attr.3caca.gz
+  /usr/share/man/man3/caca_set_canvas_boundaries.3caca.gz
+  /usr/share/man/man3/caca_set_canvas_handle.3caca.gz
+  /usr/share/man/man3/caca_set_canvas_size.3caca.gz
+  /usr/share/man/man3/caca_set_color_ansi.3caca.gz
+  /usr/share/man/man3/caca_set_color_argb.3caca.gz
+  /usr/share/man/man3/caca_set_cursor.3caca.gz
+  /usr/share/man/man3/caca_set_display_driver.3caca.gz
+  /usr/share/man/man3/caca_set_display_time.3caca.gz
+  /usr/share/man/man3/caca_set_display_title.3caca.gz
+  /usr/share/man/man3/caca_set_dither_algorithm.3caca.gz
+  /usr/share/man/man3/caca_set_dither_antialias.3caca.gz
+  /usr/share/man/man3/caca_set_dither_brightness.3caca.gz
+  /usr/share/man/man3/caca_set_dither_charset.3caca.gz
+  /usr/share/man/man3/caca_set_dither_color.3caca.gz
+  /usr/share/man/man3/caca_set_dither_contrast.3caca.gz
+  /usr/share/man/man3/caca_set_dither_gamma.3caca.gz
+  /usr/share/man/man3/caca_set_dither_palette.3caca.gz
+  /usr/share/man/man3/caca_set_frame.3caca.gz
+  /usr/share/man/man3/caca_set_frame_name.3caca.gz
+  /usr/share/man/man3/caca_set_mouse.3caca.gz
+  /usr/share/man/man3/caca_stretch_left.3caca.gz
+  /usr/share/man/man3/caca_stretch_right.3caca.gz
+  /usr/share/man/man3/caca_transform.3caca.gz
+  /usr/share/man/man3/caca_unmanage_canvas.3caca.gz
+  /usr/share/man/man3/caca_utf32_is_fullwidth.3caca.gz
+  /usr/share/man/man3/caca_utf32_to_ascii.3caca.gz
+  /usr/share/man/man3/caca_utf32_to_cp437.3caca.gz
+  /usr/share/man/man3/caca_utf32_to_utf8.3caca.gz
+  /usr/share/man/man3/caca_utf8_to_utf32.3caca.gz
+
+------------------
+
+Port Notes:
+
+----- version 0.99.beta16-10 -----
+Initial release for Cygwin 1.7.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/

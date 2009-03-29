@@ -1,0 +1,47 @@
+--- origsrc/libcaca-0.99.beta16/caca/Makefile.am	2008-07-05 11:20:04.000000000 -0500
++++ src/libcaca-0.99.beta16/caca/Makefile.am	2008-08-06 12:22:10.250000000 -0500
+@@ -94,12 +94,12 @@
+ 
+ libx11_plugin_la_SOURCES = driver/x11.c
+ libx11_plugin_la_CPPFLAGS = $(AM_CPPFLAGS) $(X11_CFLAGS)
+-libx11_plugin_la_LDFLAGS = -no-undefined -module -no-version
++libx11_plugin_la_LDFLAGS = -no-undefined -module -avoid-version
+ libx11_plugin_la_LIBADD = libcaca.la $(X11_LIBS)
+ 
+ libgl_plugin_la_SOURCES = driver/gl.c
+ libgl_plugin_la_CPPFLAGS = $(AM_CPPFLAGS) $(GL_CFLAGS) #$(FTGL_CFLAGS)
+-libgl_plugin_la_LDFLAGS = -no-undefined -module -no-version
++libgl_plugin_la_LDFLAGS = -no-undefined -module -avoid-version
+ libgl_plugin_la_LIBADD = libcaca.la $(GL_LIBS) #$(FTGL_LIBS)
+ else
+ driver_source += driver/x11.c driver/gl.c
+--- origsrc/libcaca-0.99.beta16/caca/caca.c	2008-07-05 11:39:35.000000000 -0500
++++ src/libcaca-0.99.beta16/caca/caca.c	2008-08-06 12:21:58.156250000 -0500
+@@ -28,6 +28,13 @@
+ #       if defined(HAVE_DLFCN_H)
+ #           include <dlfcn.h>
+ #       endif
++#       if defined(__CYGWIN__)
++#           define SOPREFIX "cyg"
++#           define SOSUFFIX ".dll"
++#       else
++#           define SOPREFIX "lib"
++#           define SOSUFFIX ".so"
++#       endif
+ #   endif
+ #endif
+ 
+@@ -429,11 +436,11 @@
+     char buf[512];
+     int (*sym) (caca_display_t *);
+ 
+-    sprintf(buf, "%s/lib%s_plugin.so", PLUGINDIR, driver);
++    sprintf(buf, "%s/%s%s_plugin%s", PLUGINDIR, SOPREFIX, driver, SOSUFFIX);
+     dp->plugin = dlopen(buf, RTLD_NOW);
+     if(!dp->plugin)
+     {
+-        sprintf(buf, "lib%s_plugin.so", driver);
++        sprintf(buf, "%s%s_plugin%s", SOPREFIX, driver, SOSUFFIX);
+         dp->plugin = dlopen(buf, RTLD_NOW);
+         if(!dp->plugin)
+             return -1;
