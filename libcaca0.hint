@@ -1,5 +1,5 @@
 category: Graphics
-requires: cygwin libgcc1 libGL1 libGLU1 libglut3 libncurses9 libX11_6 zlib0
+requires: libgcc1 libGL1 libGLU1 libglut3 libncurses9 libX11_6 zlib0
 external-source: libcaca
 sdesc: "Colored ASCII graphics library (runtime library)"
 ldesc: "libcaca is a graphics library that outputs text instead of pixels, so

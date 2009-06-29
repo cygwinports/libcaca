@@ -1,5 +1,5 @@
 category: Dotnet Graphics
-requires: cygwin libcaca0 mono
+requires: libcaca0 mono
 external-source: libcaca
 sdesc: "Colored ASCII graphics library (Mono C# bindings)"
 ldesc: "libcaca is a graphics library that outputs text instead of pixels, so

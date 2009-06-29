@@ -1,5 +1,5 @@
 category: Graphics
-requires: cygwin libcaca0 libncurses-devel zlib-devel
+requires: libcaca0 libncurses-devel zlib-devel
 external-source: libcaca
 sdesc: "Colored ASCII graphics library (development)"
 ldesc: "libcaca is a graphics library that outputs text instead of pixels, so

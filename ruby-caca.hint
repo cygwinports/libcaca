@@ -1,5 +1,5 @@
 category: Ruby
-requires: cygwin libcaca0 libgcc1 ruby
+requires: libcaca0 libgcc1 ruby
 external-source: libcaca
 sdesc: "Colored ASCII graphics library (Ruby bindings)"
 ldesc: "libcaca is a graphics library that outputs text instead of pixels, so
