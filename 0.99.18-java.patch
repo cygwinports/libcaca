@@ -1,0 +1,35 @@
+--- origsrc/libcaca-0.99.beta18/java/Makefile.am	2010-02-08 13:48:43.000000000 -0600
++++ src/libcaca-0.99.beta18/java/Makefile.am	2012-08-24 16:33:27.452999700 -0500
+@@ -2,7 +2,7 @@
+ jnidir = $(libdir)/jni
+ libcaca_javadir = $(datadir)/java
+ 
+-java_jar = libjava.jar
++java_jar = caca.jar
+ 
+ if USE_JAVA
+ jni_LTLIBRARIES = libcaca-java.la
+@@ -99,19 +99,19 @@ if USE_JAVA
+ BUILT_SOURCES = $(java_jni_headers) $(java_jni_classes)
+ endif
+ 
+-libcaca_java_la_CPPFLAGS = $(JAVA_CFLAGS)
++libcaca_java_la_CPPFLAGS = $(JAVA_CFLAGS) -I$(top_srcdir)/caca
+ libcaca_java_la_SOURCES = \
+   caca_java_common.h   \
+   caca_java_common.c   \
+   $(java_jni_src)
+ #nodist_libcaca_java_la_SOURCES = \
+ #  $(java_jni_headers)
+-libcaca_java_la_LDFLAGS = -shared $(JAVA_LIBS)
++libcaca_java_la_LDFLAGS = -shared -avoid-version -no-undefined $(JAVA_LIBS)
+ libcaca_java_la_LIBADD = ../caca/libcaca.la
+ 
+ examples/Driver.class: examples/Driver.java
+-	$(JAVAC) $^
++	$(JAVAC) -classpath . $^
+ 
+ examples/TrueColor.class: examples/TrueColor.java
+-	$(JAVAC) $^
++	$(JAVAC) -classpath . $^
+ 

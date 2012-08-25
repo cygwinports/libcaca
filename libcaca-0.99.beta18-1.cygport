@@ -1,0 +1,78 @@
+inherit java python python3 ruby
+
+CATEGORY="Graphics"
+SUMMARY="Color ASCII art library"
+DESCRIPTION="libcaca is a graphics library that outputs text instead of pixels,
+so that it can work on older video cards or text terminals. It is not unlike
+the famous AAlib library, except that colors are supported. libcaca can use
+almost any virtual terminal to work, and there is also a native X11 driver that
+does not require a text terminal."
+HOMEPAGE="http://libcaca.zoy.org/"
+SRC_URI="http://libcaca.zoy.org/raw-attachment/wiki/${PN}/${P}.tar.gz"
+PATCH_URI="
+	0.99.16-caca-sharp-dllmap.patch
+	0.99.16-plugins.patch
+	0.99.16-ruby.patch
+	0.99.18-java.patch
+	0.99.18-ncurses6.patch
+	0.99.18-ruby19.patch
+"
+
+PKG_NAMES="${PN}-bin ${PN}0 ${PN}++0 ${PN}-devel ${PN}++-devel ${PN}-doc
+           java-caca python-caca python3-caca ruby-caca"
+libcaca_bin_SUMMARY="${SUMMARY} (sample programs)"
+libcaca_bin_CONTENTS="--exclude=*-config.* --exclude=html --exclude=pdf \
+                      usr/bin/*.exe usr/share/doc/ usr/share/${PN} usr/share/man/man1/"
+libcaca0_SUMMARY="${SUMMARY} (C runtime)"
+libcaca0_CONTENTS="usr/bin/cygcaca-0.dll"
+libcaca__0_SUMMARY="${SUMMARY} (C++ runtime)"
+libcaca__0_CONTENTS="usr/bin/cygcaca++-0.dll"
+libcaca_devel_SUMMARY="${SUMMARY} (C development)"
+libcaca_devel_CONTENTS="--exclude=*++.* usr/bin/caca-config usr/include/ usr/lib/lib*
+                        usr/lib/pkgconfig/ usr/share/man/man1/caca-config.*"
+libcaca___devel_SUMMARY="${SUMMARY} (C++ development)"
+libcaca___devel_CONTENTS="usr/include/*++.h usr/lib/lib*++.* usr/lib/pkgconfig/**++.pc"
+libcaca_doc_SUMMARY="${SUMMARY} (API documentation)"
+libcaca_doc_CONTENTS="usr/share/doc/${PN}/*/ usr/share/man/man3/"
+java_caca_CATEGORY="Java"
+java_caca_SUMMARY="${SUMMARY} (Java JNI bindings)"
+java_caca_CONTENTS="usr/bin/cygcaca-java.dll ${JAVA_DIR#/}/caca.jar"
+python_caca_CATEGORY="Python"
+python_caca_SUMMARY="${SUMMARY} (Python bindings)"
+python_caca_REQUIRES="libcaca-devel" # ctypes.util.find_library('caca')
+python_caca_CONTENTS=${PYTHON_SITELIB#/}
+python3_caca_CATEGORY="Python"
+python3_caca_SUMMARY="${SUMMARY} (Py3K bindings)"
+python3_caca_REQUIRES="libcaca-devel" # ctypes.util.find_library('caca')
+python3_caca_CONTENTS=${PYTHON3_SITELIB#/}
+ruby_caca_CATEGORY="Ruby"
+ruby_caca_SUMMARY="${SUMMARY} (Ruby bindings)"
+ruby_caca_CONTENTS=${RUBY_VENDORLIB#/}
+
+CYGCONF_ARGS="
+	--disable-debug --enable-doc
+	--enable-x11 --with-x --x-libraries=/usr/lib --enable-gl
+	--enable-imlib2 --enable-ncurses --disable-plugins
+	--disable-cocoa --disable-conio --disable-slang --disable-win32
+	--enable-cxx --disable-csharp --enable-java --enable-python --enable-ruby
+	ac_cv_header_windows_h=no ac_cv_header_winsock2_h=no
+"
+
+src_install() {
+	cd ${B}
+	cyginstall
+	mv ${D}/usr/share/doc/${PN}{-dev,}
+	rm -f ${D}/usr/lib/libcucul*.la ${D}/usr/share/doc/libcucul*
+
+	# the python bindings are ctypes-based and Py3K compatible
+	python3into caca
+	dopython3 ${D}${PYTHON_SITELIB}/caca/*.py
+	python3_optimize
+
+	rm -f ${D}/usr/share/man/man1/cacademo.1
+	echo '.so cacafire.1' > ${D}/usr/share/man/man1/cacademo.1
+
+	find ${D}/usr/share/man/man3/ -type f ! -iname 'caca*' ! -iname 'cucul*' -exec rm -f '{}' +
+}
+
+KEEP_LA_FILES="none"
