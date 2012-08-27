@@ -1,4 +1,4 @@
-inherit java python python3 ruby
+inherit java pypy python python3 ruby autotools
 
 CATEGORY="Graphics"
 SUMMARY="Color ASCII art library"
@@ -20,7 +20,7 @@ PATCH_URI="
 "
 
 PKG_NAMES="${PN}-bin ${PN}0 ${PN}++0 ${PN}-devel ${PN}++-devel ${PN}-doc
-           java-caca python-caca python3-caca ruby-caca"
+           java-caca pypy-caca python-caca python3-caca ruby-caca"
 libcaca_bin_SUMMARY="${SUMMARY} (sample programs)"
 libcaca_bin_CONTENTS="--exclude=*-config.* --exclude=html --exclude=pdf \
                       usr/bin/*.exe usr/share/doc/ usr/share/${PN} usr/share/man/man1/"
@@ -38,6 +38,10 @@ libcaca_doc_CONTENTS="usr/share/doc/${PN}/*/ usr/share/man/man3/"
 java_caca_CATEGORY="Java"
 java_caca_SUMMARY="${SUMMARY} (Java JNI bindings)"
 java_caca_CONTENTS="usr/bin/cygcaca-java.dll ${JAVA_DIR#/}/caca.jar"
+pypy_caca_CATEGORY="Python"
+pypy_caca_SUMMARY="${SUMMARY} (PyPy bindings)"
+pypy_caca_REQUIRES="libcaca-devel" # ctypes.util.find_library('caca')
+pypy_caca_CONTENTS=${PYPY_SITELIB#/}
 python_caca_CATEGORY="Python"
 python_caca_SUMMARY="${SUMMARY} (Python bindings)"
 python_caca_REQUIRES="libcaca-devel" # ctypes.util.find_library('caca')
@@ -69,6 +73,10 @@ src_install() {
 	python3into caca
 	dopython3 ${D}${PYTHON_SITELIB}/caca/*.py
 	python3_optimize
+
+	pypyinto caca
+	dopypy ${D}${PYTHON_SITELIB}/caca/*.py
+	pypy_optimize
 
 	rm -f ${D}/usr/share/man/man1/cacademo.1
 	echo '.so cacafire.1' > ${D}/usr/share/man/man1/cacademo.1
