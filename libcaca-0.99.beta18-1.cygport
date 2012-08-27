@@ -15,6 +15,7 @@ PATCH_URI="
 	0.99.16-ruby.patch
 	0.99.18-java.patch
 	0.99.18-ncurses6.patch
+	0.99.18-python-errno.patch
 	0.99.18-ruby19.patch
 "
 
