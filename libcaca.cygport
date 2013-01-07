@@ -1,5 +1,8 @@
-inherit java pypy python python3 ruby autotools
+inherit python python3 ruby autotools # java pypy
 
+NAME="libcaca"
+VERSION=0.99.beta18
+RELEASE=1
 CATEGORY="Graphics"
 SUMMARY="Color ASCII art library"
 DESCRIPTION="libcaca is a graphics library that outputs text instead of pixels,
@@ -20,7 +23,7 @@ PATCH_URI="
 "
 
 PKG_NAMES="${PN}-bin ${PN}0 ${PN}++0 ${PN}-devel ${PN}++-devel ${PN}-doc
-           java-caca pypy-caca python-caca python3-caca ruby-caca"
+           python-caca python3-caca ruby-caca" # java-caca pypy-caca
 libcaca_bin_SUMMARY="${SUMMARY} (sample programs)"
 libcaca_bin_CONTENTS="--exclude=*-config.* --exclude=html --exclude=pdf \
                       usr/bin/*.exe usr/share/doc/ usr/share/${PN} usr/share/man/man1/"
@@ -59,7 +62,7 @@ CYGCONF_ARGS="
 	--enable-x11 --with-x --x-libraries=/usr/lib --enable-gl
 	--enable-imlib2 --enable-ncurses --disable-plugins
 	--disable-cocoa --disable-conio --disable-slang --disable-win32
-	--enable-cxx --disable-csharp --enable-java --enable-python --enable-ruby
+	--enable-cxx --disable-csharp --disable-java --enable-python --enable-ruby
 	ac_cv_header_windows_h=no ac_cv_header_winsock2_h=no
 "
 
@@ -74,9 +77,12 @@ src_install() {
 	dopython3 ${D}${PYTHON_SITELIB}/caca/*.py
 	python3_optimize
 
-	pypyinto caca
-	dopypy ${D}${PYTHON_SITELIB}/caca/*.py
-	pypy_optimize
+	if inherited pypy
+	then
+		pypyinto caca
+		dopypy ${D}${PYTHON_SITELIB}/caca/*.py
+		pypy_optimize
+	fi
 
 	rm -f ${D}/usr/share/man/man1/cacademo.1
 	echo '.so cacafire.1' > ${D}/usr/share/man/man1/cacademo.1
