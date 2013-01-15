@@ -2,7 +2,7 @@ inherit python python3 ruby autotools # java pypy
 
 NAME="libcaca"
 VERSION=0.99.beta18
-RELEASE=1
+RELEASE=2
 CATEGORY="Graphics"
 SUMMARY="Color ASCII art library"
 DESCRIPTION="libcaca is a graphics library that outputs text instead of pixels,
