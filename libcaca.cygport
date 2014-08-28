@@ -19,6 +19,7 @@ PATCH_URI="
 	0.99.18-java.patch
 	0.99.18-ncurses6.patch
 	0.99.18-python-errno.patch
+	0.99.19-cygwin-no-win32.patch
 "
 
 PKG_NAMES="${NAME}-bin ${NAME}0 ${NAME}++0 ${NAME}-devel ${NAME}++-devel ${NAME}-doc

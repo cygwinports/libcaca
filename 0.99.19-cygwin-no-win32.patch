@@ -1,0 +1,22 @@
+--- origsrc/libcaca-0.99.beta19/caca/time.c	2012-12-28 11:34:08.000000000 -0600
++++ src/libcaca-0.99.beta19/caca/time.c	2014-08-28 03:11:49.790176200 -0500
+@@ -35,7 +35,7 @@
+ 
+ void _caca_sleep(int usec)
+ {
+-#if defined(HAVE_SLEEP)
++#if defined(USE_WIN32)
+     Sleep((usec + 500) / 1000);
+ #elif defined(HAVE_USLEEP)
+     usleep(usec);
+--- origsrc/libcaca-0.99.beta19/src/cacaview.c	2012-12-28 11:46:24.000000000 -0600
++++ src/libcaca-0.99.beta19/src/cacaview.c	2014-08-28 03:12:10.433797600 -0500
+@@ -18,7 +18,7 @@
+ #   include <stdlib.h>
+ #endif
+ 
+-#if defined(HAVE_SLEEP)
++#if defined(USE_WIN32)
+ #   include <windows.h>
+ #endif
+ 
