@@ -1,8 +1,8 @@
-inherit python python3 ruby autotools # java pypy
+inherit python2 python3 ruby autotools # java pypy
 
 NAME="libcaca"
 VERSION=0.99.beta19
-RELEASE=3
+RELEASE=4
 CATEGORY="Libs"
 SUMMARY="Color ASCII art library"
 DESCRIPTION="libcaca is a graphics library that outputs text instead of pixels,
@@ -22,8 +22,8 @@ PATCH_URI="
 	0.99.19-cygwin-no-win32.patch
 "
 
-PKG_NAMES="${NAME}-bin ${NAME}0 ${NAME}++0 ${NAME}-devel ${NAME}++-devel ${NAME}-doc
-           python-caca python3-caca ruby-caca" # java-caca pypy-caca
+PKG_NAMES="${NAME}-bin ${NAME}0 ${NAME}++0 ${NAME}-devel ${NAME}++-devel
+           python2-caca python3-caca ruby-caca" # java-caca pypy-caca
 libcaca_bin_SUMMARY="${SUMMARY} (sample programs)"
 libcaca_bin_CONTENTS="--exclude=*-config.* --exclude=html --exclude=pdf \
                       usr/bin/*.exe usr/share/doc/ usr/share/${NAME} usr/share/man/man1/"
@@ -45,10 +45,11 @@ pypy_caca_CATEGORY="Python"
 pypy_caca_SUMMARY="${SUMMARY} (PyPy bindings)"
 pypy_caca_REQUIRES="libcaca-devel" # ctypes.util.find_library('caca')
 pypy_caca_CONTENTS=${PYPY_SITELIB#/}
-python_caca_CATEGORY="Python"
-python_caca_SUMMARY="${SUMMARY} (Python bindings)"
-python_caca_REQUIRES="libcaca-devel" # ctypes.util.find_library('caca')
-python_caca_CONTENTS=${PYTHON_SITELIB#/}
+python2_caca_CATEGORY="Python"
+python2_caca_SUMMARY="${SUMMARY} (Python bindings)"
+python2_caca_REQUIRES="libcaca-devel" # ctypes.util.find_library('caca')
+python2_caca_OBSOLETES="python-caca"
+python2_caca_CONTENTS=${PYTHON2_SITELIB#/}
 python3_caca_CATEGORY="Python"
 python3_caca_SUMMARY="${SUMMARY} (Py3K bindings)"
 python3_caca_REQUIRES="libcaca-devel" # ctypes.util.find_library('caca')
@@ -59,7 +60,7 @@ ruby_caca_CONTENTS="${RUBY_VENDORARCH#/}/*.so ${RUBY_VENDORLIB#/}/*.rb"
 
 # latex docs FTBFS
 CYGCONF_ARGS="
-	--disable-debug --enable-doc
+	--disable-debug --disable-doc
 	--enable-x11 --with-x --x-libraries=/usr/lib --enable-gl
 	--enable-imlib2 --enable-ncurses --disable-plugins
 	--disable-cocoa --disable-conio --disable-slang --disable-win32
@@ -76,20 +77,19 @@ src_install() {
 
 	# the python bindings are ctypes-based and Py3K compatible
 	python3into caca
-	dopython3 ${D}${PYTHON_SITELIB}/caca/*.py
-	python3_optimize
+	dopython3 ${D}${PYTHON2_SITELIB}/caca/*.py
 
 	if inherited pypy
 	then
 		pypyinto caca
-		dopypy ${D}${PYTHON_SITELIB}/caca/*.py
+		dopypy ${D}${PYTHON2_SITELIB}/caca/*.py
 		pypy_optimize
 	fi
 
 	rm -f ${D}/usr/share/man/man1/cacademo.1
 	echo '.so cacafire.1' > ${D}/usr/share/man/man1/cacademo.1
 
-	find ${D}/usr/share/man/man3/ -type f ! -iname 'caca*' ! -iname 'cucul*' -exec rm -f '{}' +
+#	find ${D}/usr/share/man/man3/ -type f ! -iname 'caca*' ! -iname 'cucul*' -exec rm -f '{}' +
 }
 
 KEEP_LA_FILES="none"
